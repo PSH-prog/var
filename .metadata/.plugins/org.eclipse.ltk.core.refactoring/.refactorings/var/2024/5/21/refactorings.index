@@ -1,0 +1,16 @@
+1716428194302	Copy file
+1716430650333	Rename resource 'GoodsSQL.xml'
+1716430703983	Rename type 'GoodsController'
+1716430722937	Rename package 'sales.controller'
+1716430728335	Rename package 'sales.vo'
+1716430734460	Rename package 'sales.service'
+1716430935461	Rename type 'GoodsService'
+1716430949481	Rename type 'GoodsServiceImpl'
+1716430965348	Rename type 'GoodsVO'
+1716441175571	Copy file
+1716442870953	Move file
+1716443467594	Copy file
+1716509168564	Delete element
+1716513480868	Infer generic type arguments
+1716513504549	Infer generic type arguments
+1716523439484	Rename resource 'list.jsp'

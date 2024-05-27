@@ -1,0 +1,17 @@
+package users.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import users.vo.UsersVO;
+
+
+public interface UsersService {
+	List<UsersVO> selectUsersList() throws Exception;
+
+	int insertUsers(UsersVO usersvo);
+
+	int deleteUsers(HashMap<String, Object> map);
+}

@@ -34,8 +34,8 @@ public class UsersServiceImpl implements UsersService {
 	}
 	
 	@Transactional
-	public int selectIdCheck(UsersVO vo) throws Exception {
-		return sqlSessionTemplate.selectOne("UsersSQL.selectIdCheck" ,vo);
+	public int selectIdCheck(String id) throws Exception {
+		return sqlSessionTemplate.selectOne("selectIdCheck" , id);
 	}
 	
 	public SqlSessionTemplate getSqlSessionTemplate() {

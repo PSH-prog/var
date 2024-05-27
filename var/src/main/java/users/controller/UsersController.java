@@ -26,8 +26,9 @@ public class UsersController {
 	
 	@Autowired
 	UsersService service;
-	
 	HashMap<String, Object> param = new HashMap<String, Object>();
+	String webIdStt = "";
+	String webCtrl = "";
 	
 	//회원가입 아이디 중복 확인
 //	@ResponseBody
@@ -59,17 +60,27 @@ public class UsersController {
 		mv.setViewName("userList");
 		return mv;
 	}
-	//회원가입 페이지 이동
+	//유저 조인 JSP 이동
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public void getRegister() throws Exception{
 	}
+	
+	// 아이디 중복 체크
+	@ResponseBody
+	@RequestMapping(value="/idChk", method = RequestMethod.POST)
+	public int idChk(String id) throws Exception {
+		int result = service.selectIdCheck(id);
+		return result;
+	}
+	
 	//유저 회원가입
-	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
 	public String postRegister(@RequestParam("userId") String userId,
 			@RequestParam("userPass") String userPass,
 			@RequestParam("userAddr") String userAddr,
 			@RequestParam("userName") String userName,
-			@RequestParam("userCall") int userCall,ModelMap model) throws Exception {
+			@RequestParam("userCall") int userCall,ModelMap model,
+			UsersVO vo) throws Exception {
 
 		param.put("user_id", userId);
 		param.put("passwd", userPass);
@@ -79,16 +90,29 @@ public class UsersController {
 		param.put("grade_no", 1);
 		param.put("gname", "일반");
 		
-		System.out.println(userName);
-		int cntInsert = service.insertUsers(param);
-		System.out.println(cntInsert);
-		
-		return "/join";
+		int idChkStt = service.selectIdCheck(userId);
+		System.out.println(idChkStt);
+		if(idChkStt == 0) {
+			model.addAttribute("idChkStt" , idChkStt);
+			return "join";
+		} else if(idChkStt == 1) {
+			int cntInsert = service.insertUsers(param);
+			System.out.println(cntInsert);
+			return "main";
+		}
+		System.out.println(webCtrl);
+		return webCtrl;
 	}
 	//메뉴 이동
-	@RequestMapping(path = "/main.jsp", method = RequestMethod.GET)
+	@RequestMapping(path = "/main", method = RequestMethod.GET)
 	public String list(Model model , HttpServletRequest req) {
-		String webIdStt = req.getParameter("lnkDt");
+		
+		webIdStt = req.getParameter("lnkDt");
+		
+		if(webIdStt == null) {
+			webIdStt = "";
+		}
+		
 		System.out.println(webIdStt);
 		String send = "";
 		
@@ -96,12 +120,15 @@ public class UsersController {
 		
 			case "userList" :
 				send = "/" +webIdStt;
-			break;
+				break;
 	
 			case "join" :
 				send = "/" +webIdStt;
-			break;
+				break;
 			
+			default :
+				send = "/main";
+				break;
 		}
 		return send;
 	}

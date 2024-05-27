@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<input type = "text" name = "text" placeholder="INSERT SQL" >
+	<hr/>
+</head>
+<body>
+<img src="images/200x200.png" alt="My Image">
+</body>
+</html>

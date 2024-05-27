@@ -1,0 +1,15 @@
+package sales.vo;
+
+public class GoodsVO {
+	private String users_id;
+	private String name;
+	private String passwd;
+	private int address;
+	private int grade_no;
+	private int gname;
+	
+	@Override
+	public String toString() {
+		return users_id + ":" + name + ":" + passwd + ":" + address+":"+grade_no+":"+gname;
+	}
+}

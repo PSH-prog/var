@@ -14,7 +14,6 @@
 		 SELECT COUNT(*) FROM users WHERE user_id = #{user_id}
 	]]>
  </select>
- 
  <!--
  <select id="selectLoginCheck" resultType="String">
 	<![CDATA[

@@ -1,0 +1,21 @@
+package users.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.ui.ModelMap;
+
+import users.vo.UsersVO;
+
+
+public interface UsersService {
+	List<UsersVO> selectUsersList() throws Exception;
+
+	int insertUsers(List<UsersVO>);
+
+	int deleteUsers(HashMap<String, Object> map);
+
+	public int insertUsers(UsersVO vo) throws Exception;
+}
