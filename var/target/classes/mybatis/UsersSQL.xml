@@ -14,13 +14,19 @@
 		 SELECT COUNT(*) FROM users WHERE user_id = #{user_id}
 	]]>
  </select>
- <!--
- <select id="selectLoginCheck" resultType="String">
+ 
+ <select id="selectLoginCheck" resultType="usersvo">
 	<![CDATA[
-		 SELECT users_id , passwd ,name, gname FROM users u , grade g WHERE users_id=#{user_id} and passwd=#{passwd} and u.grade_no = g.grade_no
+		 SELECT users_id , passwd FROM users u , grade g WHERE users_id=#{user_id} and passwd=#{passwd} and u.grade_no = g.grade_no
 	]]>
  </select>
--->
+ 
+ <select id="selectCheckClient" resultType="String">
+	<![CDATA[
+		 SELECT name , gname FROM users u , grade g WHERE users_id=#{user_id} and u.grade_no = g.grade_no
+	]]>
+ </select>
+ 
  <insert id="insertUsers" parameterType="hashMap" useGeneratedKeys="true" keyProperty="user_id">
  	<![CDATA[
  		INSERT INTO users (user_id, name , passwd , address , phonenum , grade_no) VALUES (#{user_id} , #{name} , #{passwd} , #{address} , #{phonenum} , #{grade_no})

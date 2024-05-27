@@ -29,6 +29,11 @@ public class UsersServiceImpl implements UsersService {
 	}
 	
 	@Transactional
+	public List<UsersVO> selectLoginCheck(String users_id, String passwd) {
+		return sqlSessionTemplate.selectList("selectLoginCheck");
+	}
+	
+	@Transactional
 	public int deleteUsers(HashMap<String, Object> map) {
 		return sqlSessionTemplate.delete("users.deleteUsers",map);
 	}

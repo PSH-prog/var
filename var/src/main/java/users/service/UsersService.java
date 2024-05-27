@@ -13,4 +13,6 @@ public interface UsersService {
 	int insertUsers(HashMap<String, Object> param);
 
 	int deleteUsers(HashMap<String, Object> map);
+	
+	List<UsersVO> selectLoginCheck(String id , String passwd) throws Exception;
 }

@@ -11,11 +11,7 @@
 		function checkForm(){
 			
 			let f = document.joinForm;
-			
-			if(${idChkSttStr} == 1) {
-				alert("존재하는 아이디");
-				return false;
-			} else if (f.userPass.value != f.userPassCheck.value) {
+				if (f.userPass.value != f.userPassCheck.value) {
 				alert("비밀번호가 불일치");
 				return false;				
 			} else {
@@ -24,15 +20,17 @@
 		}
 	</script>
 	<body>
-		<form>
-			<table>
-				
-			</table>
-		</form>
+		<c:set var ="stt" value="${idChkStt}"/>
+		<c:if test = "${stt eq 1}">
+			<script>
+				alert('존재한 아이디');
+			</script>
+		</c:if>
 		<form action="/var/join.do" name="joinForm" onsubmit="return checkForm()" method="get">
 			<table>
 				<tr>
-					<td style='text-align:left;width:150px'>아이디 :${idChkStt}</td>
+					<td style='text-align:left;width:150px'>아이디 :</td>
+					
 					<td>
 						<div class="form-group has-feedback">
 							<input class="form-control" type="text" id="userId" name="userId" required/>

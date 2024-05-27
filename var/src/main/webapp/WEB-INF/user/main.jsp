@@ -17,31 +17,35 @@
 	<meta charset="UTF-8"> <!-- 추가할부분 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 추가할부분 -->
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- 추가할부분 -->
-<title></title>
-			<fieldset style='width:160px; margin-top:200px; margin-left:10%;'>
-				<table style='border:none';>
-					<tr>
-						<form action="loginCheck.do" method="get">
-							<td><input type='text' id='id' name='id' placeholder='LOGIN' style='margin-top:10px;width:100px;'></input></td>
-						</form>
-							<td rowspan="2"><input type='submit' id='lgnBtn' value='LOGIN' style='margin-top:10px;width:50px;height:50px;display:flex;justify-content:center;'></input></td>
-					</tr>
-					<tr>
-						<td><input type='password' id='pass' name='pass' placeholder='PASSWORD' style='margin-top:10px;width:100px'></input></td>
-					</tr>
-					<tr>
-						<td><a href='join?lnkDt=join' style='font-size:10px' >회원가입</a></td>				
-					</tr>
-				</table>
-			</fieldset>
+<title>BOOK</title>
+		<fieldset style='width:160px; margin-top:200px; margin-left:10%;'>
+			<table style='border:none;'>
+				<tr>
+					<form action="loginCheck.do" method="get">
+						<td><input type='text' id='id' name='id' placeholder='LOGIN' style='margin-top:10px;width:100px;'></input></td>
+					</form>
+					<td rowspan="2"><input type='submit' id='lgnBtn' value='LOGIN' style='margin-top:10px;width:50px;height:50px;display:flex;justify-content:center;'></input></td>
+				</tr>
+				<tr>
+					<td><input type='password' id='pass' name='pass' placeholder='PASSWORD' style='margin-top:10px;width:100px'></input></td>
+				</tr>
+				<tr>
+					<td><a href='join?lnkDt=join' style='font-size:10px' >회원가입</a></td>				
+				</tr>
+			</table>
+		</fieldset>
 </head>
 <!-- 메뉴 드롭 CSS -->
 <body>
 
 	
-	<div style='width:160px;margin-top:0;margin-left:28%;border:1'>
-		<p>d</p>
-	</div>
+	<fieldset style='width:160px;margin-top:-117px;margin-left:31%;'>
+		<table border= '1'>
+			<tr>
+				<td>"ff"</td>
+			</tr>
+		</table>
+	</fieldset>
 	<!-- 
 	<style type="text/css">
       	* {

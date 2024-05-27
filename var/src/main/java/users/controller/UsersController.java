@@ -30,22 +30,20 @@ public class UsersController {
 	String webIdStt = "";
 	String webCtrl = "";
 	
-	//회원가입 아이디 중복 확인
-//	@ResponseBody
-//	@RequestMapping(value = "/idChk", method = RequestMethod.GET)
-//	public ModelAndView idCheck(@RequestParam("userId") String userId) throws Exception{
-//		
-//		System.out.println("userId");
-//		
-//		ModelAndView mv = new ModelAndView();
-//		UsersVO vo = new UsersVO();
-//		
-//		int idChkStt = service.selectIdCheck(vo);
-//		
-//		mv.addObject("idChkStt",idChkStt);
-//		mv.setViewName("idChkStt");
-//		return mv;
-//	}
+	//로그인
+		@RequestMapping(value = "/mainLgn")
+		public ModelAndView mainLogin(@RequestParam("userId") String userId,
+				@RequestParam("userPass") String userPass) throws Exception{
+			
+			param.put("user_id", userId);
+			param.put("passwd", userPass);
+			
+			ModelAndView mv = new ModelAndView();
+			List<UsersVO> userList = service.selectUsersList();
+			mv.addObject("userList",userList);
+			mv.setViewName("userList");
+			return mv;
+		}
 	
 	//유저 리스트출력
 	@RequestMapping(value = "/userList")
@@ -91,11 +89,11 @@ public class UsersController {
 		param.put("gname", "일반");
 		
 		int idChkStt = service.selectIdCheck(userId);
-		System.out.println(idChkStt + ">>>>");
-		if(idChkStt == 0) {
+		
+		if(idChkStt == 1) {
 			model.addAttribute("idChkStt" , idChkStt);
 			return "join";
-		} else if(idChkStt == 1) {
+		} else if(idChkStt == 0) {
 			int cntInsert = service.insertUsers(param);
 			System.out.println(cntInsert);
 			return "main";
