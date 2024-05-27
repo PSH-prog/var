@@ -91,7 +91,7 @@ public class UsersController {
 		param.put("gname", "일반");
 		
 		int idChkStt = service.selectIdCheck(userId);
-		System.out.println(idChkStt + ">>>>");
+		System.out.println(idChkStt);
 		if(idChkStt == 0) {
 			model.addAttribute("idChkStt" , idChkStt);
 			return "join";
